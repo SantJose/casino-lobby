@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-3" *ngFor="let game of games$ | async ">
+    <div class="card mb-3 shadow-sm">
+      <div class="container-img">
+        <div class="img-ratio">
+          <img class="img-fluid rounded" [src]="game.icon_2" [alt]="game.name">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
