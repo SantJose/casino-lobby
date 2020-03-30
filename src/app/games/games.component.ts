@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {GamesService} from '../core/services/games.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {IGame} from '../shared/models/game.model';
 
 @Component({
   selector: 'cl-games',
@@ -8,10 +9,9 @@ import {GamesService} from '../core/services/games.service';
 })
 export class GamesComponent implements OnInit {
 
-  games$ = this.gamesService.getGames();
+  @Input() games$: Observable<IGame[]>;
 
   constructor(
-    private gamesService: GamesService
   ) {
   }
 

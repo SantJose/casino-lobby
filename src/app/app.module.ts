@@ -6,11 +6,13 @@ import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {GamesComponent} from './games/games.component';
+import {LobbyComponent} from './lobby/lobby.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GamesComponent
+    GamesComponent,
+    LobbyComponent
   ],
   imports: [
     BrowserModule,
