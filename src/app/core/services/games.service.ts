@@ -33,8 +33,12 @@ export class GamesService {
       if (game) {
         this.game$.next(game);
       }
+    } else {
+      this.http.get<IGame[]>(`${environment.GAMES_REST_URL}`).subscribe((games) => {
+        this.games = games;
+        this.getGame(id);
+      });
     }
-    // Here would come the getOne Game request
   }
 
 }

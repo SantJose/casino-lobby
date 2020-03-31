@@ -1,11 +1,8 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, TestBed} from '@angular/core/testing';
 
 import {GamesComponent} from './games.component';
 
 describe('GamesComponent', () => {
-  let component: GamesComponent;
-  let fixture: ComponentFixture<GamesComponent>;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GamesComponent]
@@ -13,13 +10,9 @@ describe('GamesComponent', () => {
       .compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(GamesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
   it('should create', () => {
+    const fixture = TestBed.createComponent(GamesComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

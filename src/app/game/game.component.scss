@@ -1,0 +1,86 @@
+.game-title {
+  color: #fffcfc;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.no-content-container {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #d8d8d8;
+  padding-top: 40px;
+}
+
+.span-icon {
+  font-size: 9rem;
+  color: #ff7a00;
+}
+
+img {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: 300;
+  line-height: 2;
+  text-align: center;
+
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+img:after {
+  content: attr(alt);
+  font-size: 16px;
+  color: #646464;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e8e3e3;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 100px;
+}
+
+.card {
+  background-color: #343a40;
+  height: 100%;
+}
+
+.card div {
+  height: 100%;
+}
+
+.game-card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.29);
+}
+
+.game-data {
+  background-image: linear-gradient(to bottom, #343a40, transparent);
+}
+
+.game-header {
+  margin-bottom: 35px;
+}
+
+.game-header-separator {
+  border-radius: 10px;
+  height: 2px;
+  margin-top: 10px;
+  background-image: linear-gradient(90deg, transparent, white, transparent);
+}
+
+.game-body {
+  margin-bottom: 35px;
+}
+
+.game-footer {
+  margin-bottom: 10px;
+}
+
+.game-rating {
+  color: #ffa900;
+}

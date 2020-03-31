@@ -1,0 +1,19 @@
+<div>
+  <form #searchForm="ngForm" autocomplete="off">
+    <div class="form-group">
+      <div class="control">
+        <input
+          type="text"
+          id="searchTermI"
+          name="searchTermI"
+          class="form-control"
+          placeholder="Search by name ..."
+          [(ngModel)]="searchTerm"
+          #searchTermI="ngModel"
+          [class.is-danger]="searchTermI.invalid && !searchTermI.pristine"
+        />
+      </div>
+    </div>
+  </form>
+  <cl-games [games$]="gamesToShow$"></cl-games>
+</div>

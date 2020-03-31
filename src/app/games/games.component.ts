@@ -1,11 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {IGame} from '../shared/models/game.model';
 
 @Component({
   selector: 'cl-games',
   templateUrl: './games.component.html',
-  styleUrls: ['./games.component.scss']
+  styleUrls: ['./games.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GamesComponent implements OnInit {
 

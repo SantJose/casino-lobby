@@ -1,11 +1,19 @@
 <div class="row">
   <div class="col-md-3" *ngFor="let game of games$ | async ">
-    <div class="card mb-3 shadow-sm">
-      <div class="container-img">
+    <div class="card mb-3 game-card">
+      <a class="container-img rounded" [routerLink]="['/game', game.id, game.name]">
+        <div class="select-effect">
+          <span>{{game.name}}</span>
+        </div>
         <div class="img-ratio">
           <img class="img-fluid rounded" [src]="game.icon_2" [alt]="game.name">
         </div>
-      </div>
+      </a>
     </div>
+  </div>
+  <div class="col-md-12 no-content-container" *ngIf="(games$ | async).length === 0">
+    <span>
+      No games to show
+    </span>
   </div>
 </div>

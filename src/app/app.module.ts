@@ -11,8 +11,8 @@ import {LobbyComponent} from './lobby/lobby.component';
 @NgModule({
   declarations: [
     AppComponent,
-    GamesComponent,
-    LobbyComponent
+    LobbyComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
