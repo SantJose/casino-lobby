@@ -13,20 +13,15 @@ export class LobbyComponent implements OnInit {
 
   gamesToShow$: Observable<IGame[]>;
   private _searchTerm: string;
+  private _catSelected: string;
+
   get searchTerm(): string {
     return this._searchTerm;
   }
 
   set searchTerm(value) {
     this._searchTerm = value;
-    this.gamesToShow$ = this.gamesService.getGames().pipe(
-      map((games) => games.filter((game) => {
-        if (this.searchTerm && this.searchTerm !== '') {
-          return game.name.toLocaleLowerCase().indexOf(this.searchTerm.toLocaleLowerCase()) !== -1;
-        }
-        return true;
-      }))
-    );
+    this.filterGames();
   }
 
   constructor(
@@ -36,6 +31,32 @@ export class LobbyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  getCats() {
+    return this.gamesService.cats || [];
+  }
+
+  onCategorySelected(cat: string) {
+    this._catSelected = cat && (cat + '');
+    this.filterGames();
+  }
+
+  // TODO - NS - improve logic
+  private filterGames() {
+    this.gamesToShow$ = this.gamesService.getGames().pipe(
+      map((games) => games.filter((game) => {
+        if (this._searchTerm && this._searchTerm !== '') {
+          return game.name.toLocaleLowerCase().indexOf(this._searchTerm.toLocaleLowerCase()) !== -1;
+        }
+        return true;
+      }).filter((game) => {
+        if (this._catSelected && this._catSelected !== '' && game.cats && game.cats.length !== 0) {
+          return game.categories.indexOf(this._catSelected) !== -1;
+        }
+        return true;
+      })),
+    );
   }
 
 }

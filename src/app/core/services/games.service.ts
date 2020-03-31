@@ -4,6 +4,7 @@ import {Observable, of, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
+import {IGameCat} from '../../shared/models/game-cat.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class GamesService {
 
   games: IGame[];
   game$: Subject<IGame> = new Subject();
+  cats: IGameCat[] = [];
 
   constructor(
     private http: HttpClient
@@ -23,7 +25,24 @@ export class GamesService {
       return of(this.games);
     }
     return this.http.get<IGame[]>(`${environment.GAMES_REST_URL}`).pipe(
-      tap((games) => this.games = games || [])
+      tap((games) => this.games = games || []),
+      tap((games) => {
+        this.cats = games
+          .map(game => game.cats)
+          .reduce((result, cats) => [...result, ...cats])
+          .filter((c, i, arr) => arr.findIndex(t => t.id === c.id) === i)
+          .sort((ca, cb) => {
+            const idA = Number(ca.id);
+            const idB = Number(cb.id);
+            if (idA > idB) {
+              return 1;
+            }
+            if (idA < idB) {
+              return -1;
+            }
+            return 0;
+          });
+      })
     );
   }
 

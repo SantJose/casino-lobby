@@ -1,8 +1,5 @@
-#searchTermI {
-  width: 100%;
-}
 
-#searchTermI:hover {
+.input-group > *:hover {
   border-color: #b78618;
   border-width: 2px;
 }
@@ -11,18 +8,9 @@
   color: #b78618;
 }
 
-.form-control:focus {
+.form-control:focus, .custom-select:focus {
   border-color: #b78618;
   outline: 0;
-  //box-shadow: 0 0 0 0.1rem #b78618;
-  box-shadow: none;
-  border-width: 2px;
-}
-
-.form-control:focus:hover {
-  border-color: #b78618;
-  outline: 0;
-  //box-shadow: 0 0 0 0.1rem #b78618;
   box-shadow: none;
   border-width: 2px;
 }
