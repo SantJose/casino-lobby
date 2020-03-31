@@ -24,7 +24,7 @@ img:after {
   background-color: #e8e3e3;
   text-align: center;
   vertical-align: middle;
-  padding-top: 100px;
+  padding-top: 2rem;
 }
 
 .container-img {
@@ -70,12 +70,18 @@ img:after {
   float: left;
   position: absolute;
   top: 0;
-  background-image: linear-gradient(to top, rgba(217, 212, 212, 0.34), rgb(52, 58, 64));
+  background-image: linear-gradient(to top, #343a40, rgba(0, 0, 0, 0.41), #343a40);
   z-index: 10;
 }
 
 .container-img:hover .select-effect {
   display: block;
+}
+
+.select-effect span.game-info {
+  display: block;
+  bottom: 0px;
+  color: #ffa500d9;
 }
 
 .select-effect span {
