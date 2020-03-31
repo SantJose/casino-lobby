@@ -7,6 +7,8 @@ import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {GamesComponent} from './games/games.component';
 import {LobbyComponent} from './lobby/lobby.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,11 @@ import {LobbyComponent} from './lobby/lobby.component';
     GamesComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     SharedModule,
     CoreModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
   ],
   providers: [],
   bootstrap: [AppComponent]

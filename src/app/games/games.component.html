@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-3" *ngFor="let game of games$ | async ">
+<div class="row" *ngIf="games$ |async as games; else loading">
+  <div class="col-md-3" @gamesAnimation *ngFor="let game of games ">
     <div class="card mb-3 game-card">
       <a class="container-img rounded" [routerLink]="['/game', game.id, game.name]">
         <div class="select-effect">
@@ -11,9 +11,17 @@
       </a>
     </div>
   </div>
-  <div class="col-md-12 no-content-container" *ngIf="(games$ | async).length === 0">
+  <div class="col-md-12 no-content-container" *ngIf=" games?.length === 0">
     <span>
       No games to show
     </span>
   </div>
 </div>
+
+<ng-template #loading>
+  <div class="col-md-12 no-content-container">
+    <span>
+      Loading ...
+    </span>
+  </div>
+</ng-template>

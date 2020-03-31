@@ -23,7 +23,7 @@ export class GamesService {
       return of(this.games);
     }
     return this.http.get<IGame[]>(`${environment.GAMES_REST_URL}`).pipe(
-      tap((games) => this.games = games)
+      tap((games) => this.games = games || [])
     );
   }
 
@@ -35,7 +35,7 @@ export class GamesService {
       }
     } else {
       this.http.get<IGame[]>(`${environment.GAMES_REST_URL}`).subscribe((games) => {
-        this.games = games;
+        this.games = games || [];
         this.getGame(id);
       });
     }

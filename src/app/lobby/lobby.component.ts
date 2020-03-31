@@ -25,25 +25,17 @@ export class LobbyComponent implements OnInit {
           return game.name.toLocaleLowerCase().indexOf(this.searchTerm.toLocaleLowerCase()) !== -1;
         }
         return true;
-      })),
-      map((game) => {
-        console.log(game);
-        return game;
-      })
+      }))
     );
   }
 
   constructor(
     private gamesService: GamesService
   ) {
-  }
-
-  ngOnInit(): void {
     this.gamesToShow$ = this.gamesService.getGames();
   }
 
-  getGames() {
-    return this.gamesService.getGames();
+  ngOnInit(): void {
   }
 
 }

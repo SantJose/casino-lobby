@@ -9,7 +9,7 @@ import {GameComponent} from './game.component';
   declarations: [GameComponent],
   imports: [
     CommonModule,
-    GameRoutingModule
+    GameRoutingModule,
   ]
 })
 export class GameModule {
