@@ -1,9 +1,6 @@
-// Base SCSS files
-@import "~bootstrap-scss/functions";
-@import "~bootstrap-scss/variables";
-@import "~bootstrap-scss/mixins";
-@import "~bootstrap-scss/root";
-@import "~bootstrap-scss/reboot";
-@import "~bootstrap-scss/type";
+body {
+  background-color: #343a40 !important;
+  font-family: Verdana !important;
+  color: #b4b4b4 !important;
+}
 
-// Include specific SCSS components that are used in our application

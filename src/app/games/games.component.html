@@ -1,0 +1,27 @@
+<div class="row" *ngIf="games$ |async as games; else loading">
+  <div class="col-lg-2 col-md-3 col-sm-6" @gamesAnimation *ngFor="let game of games ">
+    <div class="card mb-3 game-card">
+      <a class="container-img rounded" [routerLink]="['/game', game.id, game.name]">
+        <div class="select-effect flex flex-column">
+          <span>{{game.name}}</span>
+        </div>
+        <div class="img-ratio">
+          <img class="img-fluid rounded" [src]="game.icon_2" [alt]="game.name">
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-12 no-content-container" *ngIf=" games?.length === 0">
+    <span>
+      No games to show
+    </span>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="col-md-12 no-content-container">
+    <span>
+      Loading ...
+    </span>
+  </div>
+</ng-template>

@@ -1,0 +1,21 @@
+.back-to-top {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 9999;
+  right: 40px;
+  bottom: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  opacity: .5;
+  color: #ffcd08;
+  background-color: rgba(0, 0, 0);
+  border-radius: 50%;
+  line-height: 34px;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}
