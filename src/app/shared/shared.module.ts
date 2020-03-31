@@ -4,12 +4,17 @@ import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HeaderComponent} from './header/header.component';
 import {UnderConstructionComponent} from './under-construction/under-construction.component';
+import {BackTopComponent} from './back-top/back-top.component';
 
+const SHARED_COMPONENTS = [
+  HeaderComponent,
+  UnderConstructionComponent,
+  BackTopComponent
+];
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    UnderConstructionComponent
+    ...SHARED_COMPONENTS
   ],
   imports: [
     CommonModule,
@@ -18,8 +23,7 @@ import {UnderConstructionComponent} from './under-construction/under-constructio
   ],
   exports: [
     FormsModule,
-    HeaderComponent,
-    UnderConstructionComponent
+    ...SHARED_COMPONENTS
   ]
 })
 export class SharedModule { }
